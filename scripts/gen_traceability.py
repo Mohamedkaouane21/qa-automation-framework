@@ -123,7 +123,9 @@ def render_markdown(rows: list[dict], orphans: list[str]) -> str:
 
 def render_csv(rows: list[dict]) -> str:
     out = io.StringIO()
-    writer = csv.writer(out)
+    # Force "\n" so the generated CSV matches the git-stored file on every OS
+    # (csv.writer defaults to "\r\n", which never round-trips through git).
+    writer = csv.writer(out, lineterminator="\n")
     writer.writerow(
         ["Req ID", "Layer", "Requirement", "Test level", "Test count", "Status", "Tests"]
     )
