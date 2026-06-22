@@ -1,0 +1,29 @@
+{
+  "REQ-UI-01": {"layer": "UI", "description": "A valid standard user can log in and reach the inventory page."},
+  "REQ-UI-02": {"layer": "UI", "description": "Invalid credentials (locked-out user / wrong password) show an explicit error."},
+  "REQ-UI-03": {"layer": "UI", "description": "Adding a product updates the cart badge and the cart contents."},
+  "REQ-UI-04": {"layer": "UI", "description": "Removing a product empties the cart badge."},
+  "REQ-UI-05": {"layer": "UI", "description": "Sorting products by price low-to-high orders them ascending."},
+  "REQ-UI-06": {"layer": "UI", "description": "A full checkout confirms the order and the displayed subtotal/tax/total are correct."},
+  "REQ-UI-07": {"layer": "UI", "description": "Checkout rejects a missing first name with a validation error."},
+  "REQ-UI-08": {"layer": "UI", "description": "Logging out returns the user to the login page."},
+
+  "REQ-API-01": {"layer": "API", "description": "POST /auth returns a valid authentication token."},
+  "REQ-API-02": {"layer": "API", "description": "POST /booking creates a booking and echoes the submitted data."},
+  "REQ-API-03": {"layer": "API", "description": "GET /booking/{id} returns the previously created booking."},
+  "REQ-API-04": {"layer": "API", "description": "GET /booking returns the list of booking ids."},
+  "REQ-API-05": {"layer": "API", "description": "PUT /booking/{id} with a token fully updates a booking."},
+  "REQ-API-06": {"layer": "API", "description": "PATCH /booking/{id} with a token partially updates a booking."},
+  "REQ-API-07": {"layer": "API", "description": "DELETE /booking/{id} removes a booking; a later GET returns 404."},
+  "REQ-API-08": {"layer": "API", "description": "Updating a booking without a token is rejected with 403 (negative/security)."},
+  "REQ-API-09": {"layer": "API", "description": "Booking responses conform to the documented JSON Schema contract."},
+  "REQ-API-10": {"layer": "API", "description": "GET /ping health check returns 201."},
+
+  "REQ-UNIT-01": {"layer": "UNIT", "description": "Cart subtotal sums item prices and rejects negative inputs."},
+  "REQ-UNIT-02": {"layer": "UNIT", "description": "Sales tax is 8% of the subtotal, rounded half-up."},
+  "REQ-UNIT-03": {"layer": "UNIT", "description": "Cart total equals subtotal plus tax (supports custom rates)."},
+  "REQ-UNIT-04": {"layer": "UNIT", "description": "JSON Schema validator accepts valid payloads and rejects invalid ones."},
+  "REQ-UNIT-05": {"layer": "UNIT", "description": "Booking data builder produces valid payloads with overridable fields."},
+
+  "REQ-BDD-01": {"layer": "BDD", "description": "End-to-end checkout scenario expressed in Gherkin is confirmed."}
+}

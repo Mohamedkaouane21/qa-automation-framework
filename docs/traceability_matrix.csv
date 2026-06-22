@@ -1,0 +1,25 @@
+Req ID,Layer,Requirement,Test level,Test count,Status,Tests
+REQ-API-01,API,POST /auth returns a valid authentication token.,smoke,1,COVERED,tests/api/test_booking_api.py::test_auth_returns_token
+REQ-API-02,API,POST /booking creates a booking and echoes the submitted data.,smoke,1,COVERED,tests/api/test_booking_api.py::test_create_booking
+REQ-API-03,API,GET /booking/{id} returns the previously created booking.,smoke,1,COVERED,tests/api/test_booking_api.py::test_get_booking_by_id
+REQ-API-04,API,GET /booking returns the list of booking ids.,regression,1,COVERED,tests/api/test_booking_api.py::test_get_all_booking_ids
+REQ-API-05,API,PUT /booking/{id} with a token fully updates a booking.,regression,1,COVERED,tests/api/test_booking_api.py::test_update_booking_with_token
+REQ-API-06,API,PATCH /booking/{id} with a token partially updates a booking.,regression,1,COVERED,tests/api/test_booking_api.py::test_partial_update_booking
+REQ-API-07,API,DELETE /booking/{id} removes a booking; a later GET returns 404.,regression,1,COVERED,tests/api/test_booking_api.py::test_delete_booking_then_not_found
+REQ-API-08,API,Updating a booking without a token is rejected with 403 (negative/security).,regression,1,COVERED,tests/api/test_booking_api.py::test_update_without_token_is_forbidden
+REQ-API-09,API,Booking responses conform to the documented JSON Schema contract.,regression,1,COVERED,tests/api/test_booking_api.py::test_created_booking_matches_schema
+REQ-API-10,API,GET /ping health check returns 201.,smoke,1,COVERED,tests/api/test_booking_api.py::test_healthcheck_ping
+REQ-BDD-01,BDD,End-to-end checkout scenario expressed in Gherkin is confirmed.,smoke,1,COVERED,tests/bdd/test_checkout_steps.py::test_successful_checkout_of_a_single_item
+REQ-UI-01,UI,A valid standard user can log in and reach the inventory page.,smoke,1,COVERED,tests/ui/test_login.py::test_valid_login_lands_on_inventory[chromium]
+REQ-UI-02,UI,Invalid credentials (locked-out user / wrong password) show an explicit error.,regression,2,COVERED,tests/ui/test_login.py::test_invalid_password_sees_error[chromium] | tests/ui/test_login.py::test_locked_out_user_sees_error[chromium]
+REQ-UI-03,UI,Adding a product updates the cart badge and the cart contents.,smoke,1,COVERED,tests/ui/test_cart.py::test_add_item_updates_badge_and_cart[chromium]
+REQ-UI-04,UI,Removing a product empties the cart badge.,regression,1,COVERED,tests/ui/test_cart.py::test_remove_item_empties_cart[chromium]
+REQ-UI-05,UI,Sorting products by price low-to-high orders them ascending.,regression,1,COVERED,tests/ui/test_cart.py::test_sort_price_low_to_high[chromium]
+REQ-UI-06,UI,A full checkout confirms the order and the displayed subtotal/tax/total are correct.,smoke,1,COVERED,tests/ui/test_checkout.py::test_full_checkout_totals_and_confirmation[chromium]
+REQ-UI-07,UI,Checkout rejects a missing first name with a validation error.,regression,1,COVERED,tests/ui/test_checkout.py::test_checkout_requires_first_name[chromium]
+REQ-UI-08,UI,Logging out returns the user to the login page.,regression,1,COVERED,tests/ui/test_login.py::test_logout_returns_to_login[chromium]
+REQ-UNIT-01,UNIT,Cart subtotal sums item prices and rejects negative inputs.,-,3,COVERED,tests/unit/test_price_calculator.py::test_subtotal_empty_cart_is_zero | tests/unit/test_price_calculator.py::test_subtotal_rejects_negative_price | tests/unit/test_price_calculator.py::test_subtotal_sums_prices
+REQ-UNIT-02,UNIT,"Sales tax is 8% of the subtotal, rounded half-up.",-,2,COVERED,tests/unit/test_price_calculator.py::test_tax_is_eight_percent | tests/unit/test_price_calculator.py::test_tax_rounds_half_up
+REQ-UNIT-03,UNIT,Cart total equals subtotal plus tax (supports custom rates).,-,2,COVERED,tests/unit/test_price_calculator.py::test_total_is_subtotal_plus_tax | tests/unit/test_price_calculator.py::test_total_with_custom_rate
+REQ-UNIT-04,UNIT,JSON Schema validator accepts valid payloads and rejects invalid ones.,-,3,COVERED,tests/unit/test_schema_validator.py::test_is_valid_returns_bool | tests/unit/test_schema_validator.py::test_validate_accepts_valid_instance | tests/unit/test_schema_validator.py::test_validate_raises_on_missing_field
+REQ-UNIT-05,UNIT,Booking data builder produces valid payloads with overridable fields.,-,3,COVERED,tests/unit/test_data_builders.py::test_build_booking_applies_overrides | tests/unit/test_data_builders.py::test_build_booking_has_required_fields | tests/unit/test_data_builders.py::test_build_booking_returns_independent_dicts
