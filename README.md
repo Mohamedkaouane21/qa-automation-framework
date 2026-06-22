@@ -5,10 +5,10 @@
 > critical-systems QA practice (avionics-grade discipline applied to a public
 > demo target).
 
-<!-- Replace YOUR_GITHUB_USERNAME below after you push (one sed command is in the
+<!-- Replace Mohamedkaouane21 below after you push (one sed command is in the
      "Push to GitHub" section). -->
-![CI](https://github.com/YOUR_GITHUB_USERNAME/qa-automation-framework/actions/workflows/ci.yml/badge.svg)
-[![codecov](https://codecov.io/gh/YOUR_GITHUB_USERNAME/qa-automation-framework/branch/main/graph/badge.svg)](https://codecov.io/gh/YOUR_GITHUB_USERNAME/qa-automation-framework)
+![CI](https://github.com/Mohamedkaouane21/qa-automation-framework/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/Mohamedkaouane21/qa-automation-framework/branch/main/graph/badge.svg)](https://codecov.io/gh/Mohamedkaouane21/qa-automation-framework)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Playwright](https://img.shields.io/badge/Playwright-1.60-2EAD33)
 ![License](https://img.shields.io/badge/license-MIT-green)
